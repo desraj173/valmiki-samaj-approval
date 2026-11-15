@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#542a2a" />
+    <title>Valmiki Samaj – Ekta aur Vikas</title>
+    <style>
+        :root {
+            --wine: #542a2a;
+            --wine2: #713b35;
+            --gold: #c49a50;
+            --gold2: #e5c987;
+            --ivory: #faf6ed;
+            --paper: #fffdf8;
+            --ink: #302522;
+            --muted: #887c72;
+            --line: #eadfce;
+            --green: #53745c;
+            --red: #a44d43;
+            --shadow: 0 12px 35px #3d26100d
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--ivory);
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        .shell {
+            min-height: 100vh
+        }
+
+        .topbar {
+            background: linear-gradient(110deg, #442020, #6a3830);
+            color: #fff;
+            padding: 17px clamp(16px, 4vw, 54px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            border-bottom: 3px solid var(--gold)
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px
+        }
+
+        .seal {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--gold2);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--gold2);
+            font-size: 25px;
+            background: #ffffff0c
+        }
+
+        .brand h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(17px, 2vw, 23px);
+            margin: 0;
+            letter-spacing: .3px
+        }
+
+        .brand p {
+            margin: 3px 0 0;
+            color: #e9d7b5;
+            font-size: 11px;
+            letter-spacing: 1.5px
+        }
+        .v-seal {
+            width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%;
+            display: grid; place-items: center; margin-left: 4px;
+            border: 1px solid var(--gold2); outline: 1px solid #c49a5077; outline-offset: 3px;
+            background: radial-gradient(circle, #3d1118 0 58%, #6d342d 59% 100%);
+            box-shadow: inset 0 0 0 3px #d8b56a44;
+        }
+        .v-seal svg { width: 29px; height: 29px; display: block; }
+        @media(max-width:620px){ .v-seal{width:40px;height:40px;flex-basis:40px;margin-left:0}.v-seal svg{width:24px;height:24px}.brand{gap:9px}.brand p{font-size:9px;letter-spacing:.8px} }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            flex-wrap: wrap
+        }
+
+        .lang,
+        .mode {
+            background: #ffffff12;
+            color: #fff;
+            border: 1px solid #ffffff40;
+            border-radius: 9px;
+            padding: 9px 11px
+        }
+
+        .mode.active {
+            background: var(--gold);
+            color: #38231e;
+            border-color: var(--gold)
+        }
+
+        .hero {
+            background: radial-gradient(circle at 80% 20%, #9a6d3b44, transparent 30%), linear-gradient(120deg, #4b2525, #754238);
+            color: #fff;
+            padding: clamp(34px, 6vw, 70px) clamp(18px, 7vw, 90px);
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero:after {
+            content: "✥";
+            position: absolute;
+            right: 7%;
+            top: 8%;
+            font-size: 190px;
+            color: #e5c98712
+        }
+
+        .hero-image {
+            position: absolute;
+            right: -35%;
+            top: 8%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index:    1;
+        }
+
+        .eyebrow {
+            color: var(--gold2);
+            letter-spacing: 2.5px;
+            font-size: 11px;
+            font-weight: 700
+        }
+
+        .hero h2 {
+            font: clamp(31px, 5vw, 55px)/1.08 Georgia, serif;
+            max-width: 760px;
+            margin: 15px 0
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #f1e5d4;
+            line-height: 1.7
+        }
+
+        .hero .cta {
+            margin-top: 14px
+        }
+
+        .btn {
+            border: 0;
+            border-radius: 9px;
+            padding: 10px 15px;
+            font-weight: 650;
+            background: var(--wine);
+            color: #fff
+        }
+
+        .btn.gold {
+            background: var(--gold);
+            color: #33211d
+        }
+
+        .btn.outline {
+            background: transparent;
+            border: 1px solid var(--line);
+            color: var(--wine)
+        }
+
+        .btn.small {
+            font-size: 12px;
+            padding: 7px 10px
+        }
+
+        .content {
+            max-width: 1320px;
+            margin: auto;
+            padding: 26px clamp(14px, 3vw, 34px) 60px
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0 0 22px
+        }
+
+        .nav button {
+            border: 1px solid var(--line);
+            background: var(--paper);
+            padding: 10px 14px;
+            border-radius: 9px;
+            color: #6d5b50;
+            font-weight: 600;
+            font-size: 13px
+        }
+
+        .nav button.selected {
+            background: var(--wine);
+            color: #fff;
+            border-color: var(--wine)
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 20px 0
+        }
+
+        .section-head h2 {
+            font: 28px Georgia, serif;
+            margin: 0;
+            color: var(--wine)
+        }
+
+        .section-head p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px
+        }
+
+        .card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: var(--shadow)
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: flex-start
+        }
+
+        .metric .icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: #f3ead9;
+            color: var(--wine);
+            display: grid;
+            place-items: center;
+            font-size: 18px
+        }
+
+        .metric .label {
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        .metric .value {
+            font: 27px Georgia, serif;
+            color: var(--wine);
+            margin-top: 6px
+        }
+
+        .metric .note {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 15px;
+            margin-top: 15px
+        }
+
+        .card h3 {
+            font: 20px Georgia, serif;
+            color: var(--wine);
+            margin: 0 0 13px
+        }
+
+        .list {
+            display: grid;
+            gap: 10px
+        }
+
+        .list-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 13px
+        }
+
+        .list-row:last-child {
+            border: 0
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 20px;
+            background: #edf2eb;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 650
+        }
+
+        .pill.pending {
+            background: #fbf0df;
+            color: #966b2b
+        }
+
+        .table-wrap {
+            overflow: auto;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 13px
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 650px;
+            font-size: 13px
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 13px 15px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        th {
+            background: #f5eee2;
+            color: #725d4b;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .7px
+        }
+
+        tr:last-child td {
+            border: 0
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 13px
+        }
+
+        .field {
+            background: #fffdf8;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 10px 11px;
+            color: var(--ink);
+            min-width: 0
+        }
+
+        .toolbar .field {
+            flex: 1;
+            min-width: 180px
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 11px
+        }
+
+        .form-grid label {
+            display: grid;
+            gap: 5px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        .form-grid .field {
+            width: 100%
+        }
+
+        .form-grid .wide {
+            grid-column: 1/-1
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 14px
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: #21171488;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            z-index: 20
+        }
+
+        .modal.open {
+            display: flex
+        }
+
+        .dialog {
+            background: var(--paper);
+            border-radius: 16px;
+            padding: 22px;
+            width: min(560px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            box-shadow: 0 25px 70px #0003
+        }
+
+        .dialog-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 17px
+        }
+
+        .dialog-head h3 {
+            margin: 0;
+            font: 24px Georgia, serif;
+            color: var(--wine)
+        }
+
+        .close {
+            border: 0;
+            background: #f1e9dc;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px
+        }
+
+        .barline {
+            height: 9px;
+            border-radius: 20px;
+            background: #eee5d8;
+            overflow: hidden
+        }
+
+        .barline span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--wine2), var(--gold));
+            border-radius: 20px
+        }
+
+        .goal {
+            padding: 13px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .goal:last-child {
+            border: 0
+        }
+
+        .goal-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 13px;
+            margin-bottom: 9px
+        }
+
+        .public-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 25px 18px
+        }
+
+        .value-card .symbol {
+            font-size: 28px;
+            color: var(--gold)
+        }
+
+        .value-card h3 {
+            margin: 9px 0
+        }
+
+        .value-card p {
+            font-size: 13px;
+            line-height: 1.65;
+            color: var(--muted)
+        }
+
+        .pledge {
+            background: linear-gradient(120deg, #4b2525, #754238);
+            color: #fff;
+            border-radius: 16px;
+            padding: 26px;
+            text-align: center;
+            margin-top: 16px
+        }
+
+        .pledge h3 {
+            color: var(--gold2);
+            font: 26px Georgia, serif
+        }
+
+        .pledge p {
+            color: #f1e5d4;
+            line-height: 1.7
+        }
+
+        .footer {
+            text-align: center;
+            color: #9a8879;
+            padding: 25px;
+            font-size: 11px
+        }
+
+        .empty {
+            text-align: center;
+            color: var(--muted);
+            padding: 25px
+        }
+
+        .hidden {
+            display: none !important
+        }
+
+        .notice {
+            font-size: 12px;
+            color: #8c6c35;
+            background: #fbf2df;
+            border: 1px solid #eeddbb;
+            border-radius: 9px;
+            padding: 10px 12px;
+            margin: 12px 0
+        }
+
+        .chart {
+            height: 170px;
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            padding: 15px 4px 0
+        }
+
+        .chart-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            gap: 6px
+        }
+
+        .chart-col span {
+            font-size: 10px;
+            color: var(--muted)
+        }
+
+        .chart-col i {
+            display: block;
+            width: min(34px, 75%);
+            background: linear-gradient(0deg, var(--wine), var(--gold));
+            border-radius: 6px 6px 0 0;
+            min-height: 3px
+        }
+
+        .chart-col b {
+            font-size: 10px;
+            color: var(--wine)
+        }
+
+        @media(max-width:900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .two {
+                grid-template-columns: 1fr
+            }
+
+            .public-cards {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:540px) {
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column
+            }
+
+            .top-actions {
+                width: 100%
+            }
+
+            .hero {
+                padding: 34px 20px
+            }
+
+            .grid {
+                gap: 9px
+            }
+
+            .card {
+                padding: 14px
+            }
+
+            .metric .value {
+                font-size: 22px
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr
+            }
+
+            .form-grid .wide {
+                grid-column: auto
+            }
+
+            .section-head {
+                align-items: flex-start;
+                flex-direction: column
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="seal">ॐ</div>
+                <div>
+                    <h1>Valmiki Samaj – Ekta aur Vikas</h1>
+                    <p data-i18n="valuesLine">एकता • सम्मान • सेवा • शिक्षा • विकास</p>
+                </div>
+                <div class="v-seal" role="img" aria-label="Valmiki Samaj V emblem">
+                    <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 8 C14 9 20 17 23 29 C24 34 24 39 24 43 C21 30 15 22 8 20 C6 16 5 12 5 8Z" fill="#fffdf8"/><path d="M43 8 C34 9 28 17 25 29 C24 34 24 39 24 43 C27 30 33 22 40 20 C42 16 43 12 43 8Z" fill="#fffdf8"/></svg>
+                </div>
+            </div>
+            <div class="top-actions"><select class="lang" id="language" aria-label="Language">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="pa">ਪੰਜਾਬੀ</option>
+                </select><button class="mode active" id="adminMode">⚙ Admin</button><button class="mode"
+                    id="publicMode">◈ Public site</button><button class="mode" id="logoutBtn" onclick="logout()" hidden>↪ Sign out</button></div>
+        </header>
+        <section class="hero" id="hero">
+            <div class="eyebrow" data-i18n="eyebrow">OUR COMMUNITY • OUR RESPONSIBILITY</div>
+            <h2 data-i18n="heroTitle">United in heritage.<br />Growing with purpose.</h2>
+            <p data-i18n="heroText">A shared space to celebrate our culture, strengthen our community, support one
+                another and build a brighter future for the generations ahead.</p><button class="btn gold cta"
+                onclick="showView('vision')" data-i18n="heroCta">Explore our vision ↗</button>
+                <img src="v2.png" alt="Valmiki Samaj" class="hero-image">
+        </section>
+        <main class="content">
+            <nav class="nav" id="adminNav"><button class="selected" data-view="dashboard">▦ Dashboard</button><button
+                    data-view="members">♙ Members</button><button data-view="finance">₹ Finance &
+                    cashbook</button><button data-view="expenses">⇧ Expenses</button><button data-view="events">✦
+                    Events</button><button data-view="broadcast">◉ WhatsApp</button><button data-view="vision">⚑ Goals &
+                    vision</button><button data-view="reports">▤ Analytics</button></nav>
+            <nav class="nav hidden" id="publicNav"><button class="selected" data-view="home">⌂ Home</button><button
+                    data-view="vision">⚑ Our vision</button><button data-view="events">✦ Events</button><button
+                    data-view="pledge">♡ Community pledge</button></nav>
+            <section id="view-dashboard" class="view">
+                <div class="section-head">
+                    <div>
+                        <h2 data-i18n="overview">Community overview</h2>
+                        <p data-i18n="overviewSub">A transparent view of your community activity</p>
+                    </div><button class="btn gold" onclick="openModal('memberModal')">＋ Add member</button>
+                </div>
+                <div class="grid" id="metrics"></div>
+                <div class="two">
+                    <div class="card">
+                        <h3>Recent activity</h3>
+                        <div class="list" id="activityList"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Community goals</h3>
+                        <div id="goalPreview"></div><button class="btn outline small" style="margin-top:12px"
+                            onclick="showView('vision')">Manage goals →</button>
+                    </div>
+                </div>
+            </section>
+            <section id="view-members" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Member directory</h2>
+                        <p>Manage registrations, contact details and member status</p>
+                    </div><button class="btn gold" onclick="openModal('memberModal')">＋ Add member</button>
+                </div>
+                <div class="toolbar"><input class="field" id="memberSearch"
+                        placeholder="Search name, phone or member ID…" /><select class="field" id="memberFilter">
+                        <option value="all">All members</option>
+                        <option value="Active">Active</option>
+                        <option value="Pending">Pending</option>
+                    </select></div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Member ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Joined</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberRows"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="view-finance" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Payments & cashbook</h2>
+                        <p>Record every contribution and keep a clear ledger</p>
+                    </div><button class="btn gold" onclick="openModal('paymentModal')">＋ Record payment</button>
+                </div>
+                <div class="grid" id="financeMetrics"></div>
+                <div class="notice">Demo workspace: sample figures are illustrative. Replace them with verified records
+                    before using this for official accounts.</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Member / source</th>
+                                <th>Type</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Note</th><th>Status / approval</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentRows"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="view-expenses" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Expense register</h2>
+                        <p>Track event costs, purchases and community spending</p>
+                    </div><button class="btn gold" onclick="openModal('expenseModal')">＋ Add expense</button>
+                </div>
+                <div class="grid" id="expenseMetrics"></div>
+                <div class="table-wrap" style="margin-top:15px">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Paid by</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseRows"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="view-events" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Community events</h2>
+                        <p>Bring people together through culture, service and celebration</p>
+                    </div><button class="btn gold" onclick="openModal('eventModal')">＋ Add event</button>
+                </div>
+                <div class="grid" id="eventCards"></div>
+            </section>
+            <section id="view-broadcast" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Community announcements</h2>
+                        <p>Prepare a message and share it with your WhatsApp community</p>
+                    </div>
+                </div>
+                <div class="card" style="max-width:760px">
+                    <h3>Compose announcement</h3>
+                    <div class="form-grid"><label>Message language<select class="field" id="broadcastLang">
+                                <option>Hindi</option>
+                                <option>English</option>
+                                <option>Punjabi</option>
+                            </select></label><label>Message category<select class="field" id="broadcastType">
+                                <option>Community update</option>
+                                <option>Event invitation</option>
+                                <option>Payment reminder</option>
+                                <option>Meeting notice</option>
+                            </select></label><label class="wide">Your message<textarea class="field" rows="6"
+                                id="broadcastMessage" placeholder="Write your announcement here…"></textarea></label>
+                    </div>
+                    <div class="notice">This opens WhatsApp with your prepared message. Select your group or recipients
+                        there and send. The website does not silently send messages or access your WhatsApp group.</div>
+                    <button class="btn" onclick="shareWhatsApp()">◉ Open WhatsApp with message</button> <button
+                        class="btn outline" onclick="copyBroadcast()">Copy message</button>
+                </div>
+            </section>
+            <section id="view-vision" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Our vision, values & goals</h2>
+                        <p>एकता से शक्ति • सम्मान से पहचान • सेवा से सहयोग • शिक्षा से प्रगति • विकास से समृद्धि</p>
+                    </div><button class="btn gold" onclick="openModal('goalModal')">＋ Add goal</button>
+                </div>
+                <div class="public-cards">
+                    <div class="card value-card">
+                        <div class="symbol">एकता</div>
+                        <h3>Unity · एकता</h3>
+                        <p>Building stronger bonds through inclusion, togetherness and collective responsibility.</p>
+                    </div>
+                    <div class="card value-card">
+                        <div class="symbol">सम्मान</div>
+                        <h3>Respect · सम्मान</h3>
+                        <p>Honouring every person, our shared heritage and the dignity of every family.</p>
+                    </div>
+                    <div class="card value-card">
+                        <div class="symbol">सेवा</div>
+                        <h3>Service · सेवा</h3>
+                        <p>Standing together to support families and contribute to the wellbeing of society.</p>
+                    </div>
+                    <div class="card value-card">
+                        <div class="symbol">ज्ञान</div>
+                        <h3>Education · शिक्षा</h3>
+                        <p>Encouraging learning, opportunity and support for children and young people.</p>
+                    </div>
+                    <div class="card value-card">
+                        <div class="symbol">विकास</div>
+                        <h3>Growth · विकास</h3>
+                        <p>Creating a progressive, self-reliant community with opportunities for every generation.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:15px">
+                    <h3>Our community goals</h3>
+                    <div id="allGoals"></div>
+                </div>
+            </section>
+            <section id="view-pledge" class="view hidden">
+                <div class="pledge">
+                    <div class="eyebrow">OUR SHARED PROMISE • हमारा संकल्प</div>
+                    <h3>एकता और विकास का संकल्प</h3>
+                    <p>“I pledge to respect our heritage, promote education, support those in need, act with honesty,
+                        and contribute positively to the unity and progress of our community.”</p>
+                    <p>“ਮੈਂ ਆਪਣੀ ਵਿਰਾਸਤ ਦਾ ਸਤਿਕਾਰ ਕਰਨ, ਸਿੱਖਿਆ ਨੂੰ ਉਤਸ਼ਾਹਿਤ ਕਰਨ ਅਤੇ ਸਮਾਜ ਦੀ ਏਕਤਾ ਤੇ ਤਰੱਕੀ ਲਈ ਯੋਗਦਾਨ ਪਾਉਣ
+                        ਦਾ ਸੰਕਲਪ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ।”</p><button class="btn gold"
+                        onclick="pledgeCount++;document.getElementById('pledgeCount').textContent=pledgeCount;localStorage.setItem('vs_pledges',pledgeCount)">♡
+                        I take this pledge</button>
+                    <p style="font-size:12px">Community pledges recorded on this browser: <strong
+                            id="pledgeCount">0</strong></p>
+                </div>
+            </section>
+            <section id="view-reports" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Analytics & reports</h2>
+                        <p>Understand collections, spending and community participation</p>
+                    </div><button class="btn outline" onclick="exportCSV()">↓ Export transactions CSV</button>
+                </div>
+                <div class="grid" id="reportMetrics"></div>
+                <div class="two">
+                    <div class="card">
+                        <h3>Monthly collection</h3>
+                        <div class="chart" id="collectionChart"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Financial summary</h3>
+                        <div id="reportSummary" class="list"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="view-home" class="view hidden">
+                <div class="section-head">
+                    <div>
+                        <h2>Welcome to Valmiki Samaj</h2>
+                        <p>Our heritage is our strength. Our unity is our future.</p>
+                    </div>
+                </div>
+                <div class="public-cards">
+                    <div class="card value-card">
+                        <div class="symbol">✥</div>
+                        <h3>Our heritage</h3>
+                        <p>Honouring our cultural roots, shared history and traditions with dignity.</p>
+                    </div>
+                    <div class="card value-card">
+                        <div class="symbol">ज्ञान</div>
+                        <h3>Our mission</h3>
+                        <p>Creating opportunities through education, service and collective action.</p>
+                    </div>
+                    <div class="card value-card">
+                        <div class="symbol">✦</div>
+                        <h3>Our future</h3>
+                        <p>Working together for an empowered, compassionate and progressive community.</p>
+                    </div>
+                </div>
+                <div class="pledge">
+                    <h3>एकता • सम्मान • सेवा • शिक्षा • विकास</h3>
+                    <p>One community. Shared responsibility. A brighter tomorrow.</p><button class="btn gold"
+                        onclick="showView('pledge')">Take the community pledge →</button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">VALMIKI SAMAJ – EKTA AUR VIKAS · Built for unity, transparency and community growth
+            <br>
+            Ward No 15 Mandi Dabwali, Haryana, India
+        </footer>
+    </div>
+    <div class="modal" id="loginModal"><div class="dialog"><div class="dialog-head"><h3>Administrator sign in</h3><button class="close" onclick="closeModal('loginModal')">×</button></div><p class="muted" style="font-size:13px">Sign in with your Valmiki Samaj committee account.</p><form id="loginForm"><div class="form-grid"><label class="wide">Email<input class="field" name="email" type="email" required autocomplete="username" placeholder="admin@example.org" /></label><label class="wide">Password<input class="field" name="password" type="password" required autocomplete="current-password" /></label></div><div class="form-actions"><button type="button" class="btn outline" onclick="closeModal('loginModal')">Cancel</button><button class="btn">Sign in securely</button></div></form></div></div>
+    <!-- Modals -->
+    <div class="modal" id="memberModal">
+        <div class="dialog">
+            <div class="dialog-head">
+                <h3>Add community member</h3><button class="close" onclick="closeModal('memberModal')">×</button>
+            </div>
+            <form id="memberForm">
+                <div class="form-grid"><label>Full name<input class="field" name="name" required
+                            placeholder="Member name" /></label><label>Phone number<input class="field" name="phone"
+                            placeholder="+91…" /></label><label>Member ID<input class="field" name="id"
+                            placeholder="Auto-generated if blank" /></label><label>Status<select class="field"
+                            name="status">
+                            <option>Active</option>
+                            <option>Pending</option>
+                        </select></label></div>
+                <div class="form-actions"><button type="button" class="btn outline"
+                        onclick="closeModal('memberModal')">Cancel</button><button class="btn">Save member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="paymentModal">
+        <div class="dialog">
+            <div class="dialog-head">
+                <h3>Record contribution / income</h3><button class="close"
+                    onclick="closeModal('paymentModal')">×</button>
+            </div>
+            <form id="paymentForm">
+                <div class="form-grid"><label>Member / source<input class="field" name="source" required
+                            placeholder="Name or donation source" /></label><label>Amount (₹)<input class="field"
+                            name="amount" type="number" min="1" required /></label><label>Payment type<select
+                            class="field" name="type">
+                            <option>Contribution</option>
+                            <option>Donation</option>
+                            <option>Event collection</option>
+                            <option>Other income</option>
+                        </select></label><label>Method<select class="field" name="method">
+                            <option>Cash</option>
+                            <option>UPI</option>
+                            <option>Bank transfer</option>
+                            <option>Other</option>
+                        </select></label><label class="wide">Note<input class="field" name="note"
+                            placeholder="Month, receipt reference or details" /></label></div>
+                <div class="form-actions"><button type="button" class="btn outline"
+                        onclick="closeModal('paymentModal')">Cancel</button><button class="btn">Save payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="expenseModal">
+        <div class="dialog">
+            <div class="dialog-head">
+                <h3>Record an expense</h3><button class="close" onclick="closeModal('expenseModal')">×</button>
+            </div>
+            <form id="expenseForm">
+                <div class="form-grid"><label>Category<select class="field" name="category">
+                            <option>Event</option>
+                            <option>Education support</option>
+                            <option>Community welfare</option>
+                            <option>Office & administration</option>
+                            <option>Travel</option>
+                            <option>Other</option>
+                        </select></label><label>Amount (₹)<input class="field" name="amount" type="number" min="1"
+                            required /></label><label class="wide">Description<input class="field" name="description"
+                            required placeholder="What was this expense for?" /></label><label>Paid by<input
+                            class="field" name="paidBy" placeholder="Name" /></label><label>Date<input class="field"
+                            name="date" type="date" /></label></div>
+                <div class="form-actions"><button type="button" class="btn outline"
+                        onclick="closeModal('expenseModal')">Cancel</button><button class="btn">Save expense</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="eventModal">
+        <div class="dialog">
+            <div class="dialog-head">
+                <h3>Add community event</h3><button class="close" onclick="closeModal('eventModal')">×</button>
+            </div>
+            <form id="eventForm">
+                <div class="form-grid"><label>Event name<input class="field" name="name"
+                            required /></label><label>Date<input class="field" name="date" type="date"
+                            required /></label><label class="wide">Venue<input class="field" name="venue"
+                            placeholder="Venue / location" /></label><label class="wide">Description<input class="field"
+                            name="description" placeholder="A short event description" /></label></div>
+                <div class="form-actions"><button type="button" class="btn outline"
+                        onclick="closeModal('eventModal')">Cancel</button><button class="btn">Save event</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="goalModal">
+        <div class="dialog">
+            <div class="dialog-head">
+                <h3>Add a community goal</h3><button class="close" onclick="closeModal('goalModal')">×</button>
+            </div>
+            <form id="goalForm">
+                <div class="form-grid"><label class="wide">Goal title<input class="field" name="title" required
+                            placeholder="e.g. Education support fund" /></label><label>Target amount / target<input
+                            class="field" name="target" type="number" min="1" required /></label><label>Current
+                        progress<input class="field" name="current" type="number" min="0" value="0" /></label></div>
+                <div class="form-actions"><button type="button" class="btn outline"
+                        onclick="closeModal('goalModal')">Cancel</button><button class="btn">Save goal</button></div>
+            </form>
+        </div>
+    </div>
+    <script src="/config.js"></script>
+    <script>
+      const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+      const API = (window.VALMIKI_API_URL || '').replace(/\/$/, '');
+      const money = n => '₹' + Number(n || 0).toLocaleString('en-IN');
+      const today = () => new Date().toISOString().slice(0,10);
+      let token = sessionStorage.getItem('vs_token') || '';
+      let currentUser = null, currentMode = 'public';
+      let members=[], transactions=[], events=[], goals=[], dashboard={};
+      const headers = () => ({'Content-Type':'application/json', ...(token ? {Authorization:`Bearer ${token}`} : {})});
+      async function api(path, options={}) {
+        const res = await fetch(`${API}/api${path}`, {...options, headers:{...headers(), ...(options.headers||{})}});
+        const data = await res.json().catch(()=>({}));
+        if (!res.ok) { if(res.status===401 && token) logout(false); throw new Error(data.error || `Request failed (${res.status})`); }
+        return data;
+      }
+      function notify(message, bad=false) { let n=$('#appNotice'); if(!n){n=document.createElement('div');n.id='appNotice';n.style.cssText='position:fixed;right:18px;bottom:18px;z-index:100;background:#542a2a;color:white;padding:13px 18px;border-radius:10px;box-shadow:0 8px 28px #0003;max-width:360px';document.body.append(n)} n.textContent=message;n.style.background=bad?'#9b3d35':'#542a2a';n.hidden=false;clearTimeout(window.__noticeTimer);window.__noticeTimer=setTimeout(()=>n.hidden=true,3800); }
+      function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+      function showView(v){ $$('.view').forEach(x=>x.classList.add('hidden')); $('#view-'+v)?.classList.remove('hidden'); $$('.nav button').forEach(x=>x.classList.toggle('selected',x.dataset.view===v)); if(currentMode==='public') $('#hero').classList.toggle('hidden',v==='pledge'); window.scrollTo({top:0,behavior:'smooth'}); }
+      $$('.nav').forEach(n=>n.addEventListener('click',e=>{let b=e.target.closest('button[data-view]');if(b){showView(b.dataset.view);if(currentMode==='admin') loadAdminData().catch(e=>notify(e.message,true));}}));
+      function openModal(id){$('#'+id)?.classList.add('open')} function closeModal(id){$('#'+id)?.classList.remove('open')}
+      $$('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));
+      function setMode(mode){
+        if(mode==='admin' && !token){openModal('loginModal');return;}
+        currentMode=mode;$('#adminMode').classList.toggle('active',mode==='admin');$('#publicMode').classList.toggle('active',mode==='public');
+        $('#adminNav').classList.toggle('hidden',mode!=='admin');$('#publicNav').classList.toggle('hidden',mode!=='public');
+        if(mode==='public'){showView('home');loadPublicData().catch(e=>notify(e.message,true));}
+        else {showView('dashboard');loadAdminData().catch(e=>notify(e.message,true));}
+        updateAuthControls();
+      }
+      $('#adminMode').onclick=()=>setMode('admin');$('#publicMode').onclick=()=>setMode('public');
+      function updateAuthControls(){let b=$('#logoutBtn');if(b)b.hidden=!token;}
+      async function login(e){e.preventDefault();try{let f=e.target,d=Object.fromEntries(new FormData(f));let result=await api('/auth/login',{method:'POST',body:JSON.stringify(d)});token=result.token;currentUser=result.user;sessionStorage.setItem('vs_token',token);closeModal('loginModal');f.reset();setMode('admin');notify(`Welcome, ${currentUser.name}`);}catch(err){notify(err.message,true)}}
+      function logout(show=true){token='';currentUser=null;sessionStorage.removeItem('vs_token');updateAuthControls();setMode('public');if(show)notify('You have signed out.');}
+      $('#loginForm').onsubmit=login;
+      async function loadPublicData(){try{let d=await api('/public');events=d.events||[];goals=d.goals||[];renderEvents();renderGoals();$('#pledgeCount').textContent=d.pledgeCount||0;}catch(e){console.warn(e)}}
+      async function loadAdminData(){if(!token)return;let financeAllowed=['Super Admin','Admin','Treasurer'].includes(currentUser?.role);let [dash,m,g,ev]=await Promise.all([api('/dashboard'),api('/members'),api('/goals'),api('/events')]);dashboard=dash;members=m.members||[];goals=g.goals||[];events=ev.events||[];transactions=financeAllowed?(await api('/transactions')).transactions||[]:[];$$('#adminNav button[data-view=\"finance\"],#adminNav button[data-view=\"expenses\"],#adminNav button[data-view=\"reports\"]').forEach(b=>b.classList.toggle('hidden',!financeAllowed));renderAll();}
+      function renderAll(){
+        let income=transactions.filter(x=>x.direction==='income'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),out=transactions.filter(x=>x.direction==='expense'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),active=members.filter(x=>x.status==='Active').length;
+        $('#metrics').innerHTML=[['♙','Total members',dashboard.members??members.length,'Registered members'],['₹','Total collections',money(dashboard.totalIncome??income),'Verified ledger income'],['↗','Total expenses',money(dashboard.totalExpenses??out),'Recorded spending'],['◈','Available balance',money(dashboard.balance??income-out),'Income less expenses']].map(x=>`<div class="card metric"><div><div class="label">${x[1]}</div><div class="value">${x[2]}</div><div class="note">${x[3]}</div></div><div class="icon">${x[0]}</div></div>`).join('');
+        $('#activityList').innerHTML=transactions.slice(0,5).map(x=>`<div class="list-row"><div><b>${esc(x.party||x.description||x.category)}</b><div class="muted">${esc(x.category)} · ${new Date(x.date).toLocaleDateString()}</div></div><b style="color:${x.direction==='income'?'var(--green)':'var(--red)'}">${x.direction==='income'?'+':'−'}${money(x.amount)}</b></div>`).join('')||'<div class="empty">No activity yet</div>';
+        renderGoals();renderMembers();renderFinance();renderEvents();renderReports();
+      }
+      function renderMembers(){let q=($('#memberSearch')?.value||'').toLowerCase(),f=$('#memberFilter')?.value||'all';let rows=members.filter(m=>(f==='all'||m.status===f)&&[m.memberId,m.name,m.phone].join(' ').toLowerCase().includes(q));$('#memberRows').innerHTML=rows.map(m=>`<tr><td>${esc(m.memberId)}</td><td><b>${esc(m.name)}</b></td><td>${esc(m.phone||'—')}</td><td>${new Date(m.joinedAt||m.createdAt).toLocaleDateString()}</td><td><span class="pill ${m.status==='Pending'?'pending':''}">${esc(m.status)}</span></td><td><button class="btn outline small" onclick="toggleMember('${m._id}')">Change status</button></td></tr>`).join('')||'<tr><td colspan="6" class="empty">No members found</td></tr>'}
+      async function toggleMember(id){let m=members.find(x=>x._id===id);if(!m)return;let status=m.status==='Active'?'Inactive':'Active';try{await api('/members/'+id,{method:'PATCH',body:JSON.stringify({status})});await loadAdminData();notify('Member status updated.')}catch(e){notify(e.message,true)}}
+      function renderFinance(){let income=transactions.filter(x=>x.direction==='income'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),out=transactions.filter(x=>x.direction==='expense'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0);$('#financeMetrics').innerHTML=[['Collections',money(income)],['Expenses',money(out)],['Net balance',money(income-out)],['Pending approvals',dashboard.pendingApprovals||0]].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join('');$('#paymentRows').innerHTML=transactions.filter(x=>x.direction==='income').map(x=>`<tr><td>${new Date(x.date).toLocaleDateString()}</td><td>${esc(x.party||x.memberId?.name||'—')}</td><td>${esc(x.category)}</td><td>${esc(x.method)}</td><td><b>${money(x.amount)}</b></td><td>${esc(x.description||'—')}</td><td>${esc(x.status)} ${x.status==='Pending approval'&&['Super Admin','Admin'].includes(currentUser?.role)?`<button class="btn small" onclick="approveTransaction('${x._id}','Approved')">Approve</button> <button class="btn outline small" onclick="approveTransaction('${x._id}','Rejected')">Reject</button>`:''}</td></tr>`).join('')||'<tr><td colspan="7" class="empty">No payments recorded</td></tr>';$('#expenseMetrics').innerHTML=[['Total expenses',money(out)],['Expense entries',transactions.filter(x=>x.direction==='expense').length],['Net community balance',money(income-out)],['Pending approvals',dashboard.pendingApprovals||0]].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join('');$('#expenseRows').innerHTML=transactions.filter(x=>x.direction==='expense').map(x=>`<tr><td>${new Date(x.date).toLocaleDateString()}</td><td>${esc(x.category)}</td><td>${esc(x.description||'—')}</td><td>${esc(x.party||'—')}</td><td><b>${money(x.amount)}</b></td></tr>`).join('')||'<tr><td colspan="5" class="empty">No expenses recorded</td></tr>';}
+      async function approveTransaction(id,status){try{await api('/transactions/'+id+'/approval',{method:'PATCH',body:JSON.stringify({status})});await loadAdminData();notify('Transaction '+status.toLowerCase()+'.')}catch(e){notify(e.message,true)}}
+      function renderEvents(){$('#eventCards').innerHTML=events.map(x=>`<div class="card"><div class="eyebrow" style="color:var(--gold)">COMMUNITY GATHERING</div><h3 style="margin-top:10px">${esc(x.title||x.name)}</h3><div class="muted" style="font-size:12px">▦ ${new Date(x.date).toLocaleDateString()} · ◈ ${esc(x.venue||'Venue to be confirmed')}</div><p style="font-size:13px;line-height:1.6">${esc(x.description||'Join the community.')}</p></div>`).join('')||'<div class="empty">No events added yet</div>';}
+      function renderGoals(){let html=goals.map(g=>{let target=Number(g.targetAmount??g.target??0),current=Number(g.currentAmount??g.current??0),pct=target?Math.min(100,Math.round(current/target*100)):0;return `<div class="goal"><div class="goal-top"><b>${esc(g.title)}</b><span>${pct}%</span></div><div class="barline"><span style="width:${pct}%"></span></div><div class="muted" style="font-size:11px;margin-top:5px">${money(current)} of ${money(target)}</div></div>`}).join('')||'<div class="empty">No goals published yet</div>';$('#goalPreview').innerHTML=goals.slice(0,3).map(g=>{let t=Number(g.targetAmount||0),c=Number(g.currentAmount||0),p=t?Math.min(100,Math.round(c/t*100)):0;return `<div class="goal"><div class="goal-top"><b>${esc(g.title)}</b><span>${p}%</span></div><div class="barline"><span style="width:${p}%"></span></div><div class="muted" style="font-size:11px;margin-top:5px">${money(c)} of ${money(t)}</div></div>`}).join('');$('#allGoals').innerHTML=html;}
+      function renderReports(){let income=transactions.filter(x=>x.direction==='income'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),out=transactions.filter(x=>x.direction==='expense'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0);$('#reportMetrics').innerHTML=[['Total income',money(income)],['Total outflow',money(out)],['Net position',money(income-out)],['Members',members.length]].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join('');let incomeRows=transactions.filter(x=>x.direction==='income').slice(0,7).reverse(),max=Math.max(1,...incomeRows.map(x=>x.amount));$('#collectionChart').innerHTML=incomeRows.map(x=>`<div class="chart-col"><b>${Math.round(x.amount/100)/10}k</b><i style="height:${Math.max(4,x.amount/max*105)}px"></i><span>${new Date(x.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short'})}</span></div>`).join('')||'<span class="muted">No data</span>';$('#reportSummary').innerHTML=[['Active members',members.filter(x=>x.status==='Active').length],['Pending members',members.filter(x=>x.status==='Pending').length],['Income entries',transactions.filter(x=>x.direction==='income').length],['Expense entries',transactions.filter(x=>x.direction==='expense').length],['Events planned',events.length]].map(x=>`<div class="list-row"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}
+      function formData(f){return Object.fromEntries(new FormData(f).entries())}
+      $('#memberForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/members',{method:'POST',body:JSON.stringify({name:d.name,phone:d.phone,memberId:d.id,status:d.status})});e.target.reset();closeModal('memberModal');await loadAdminData();notify('Member saved to the community database.')}catch(err){notify(err.message,true)}};
+      $('#paymentForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/transactions',{method:'POST',body:JSON.stringify({direction:'income',category:d.type,amount:Number(d.amount),method:d.method,party:d.source,description:d.note,date:today()})});e.target.reset();closeModal('paymentModal');await loadAdminData();notify('Payment recorded.')}catch(err){notify(err.message,true)}};
+      $('#expenseForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/transactions',{method:'POST',body:JSON.stringify({direction:'expense',category:d.category,amount:Number(d.amount),method:'Cash',party:d.paidBy,description:d.description,date:d.date||today()})});e.target.reset();closeModal('expenseModal');await loadAdminData();notify('Expense recorded.')}catch(err){notify(err.message,true)}};
+      $('#eventForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/events',{method:'POST',body:JSON.stringify({title:d.name,date:d.date,venue:d.venue,description:d.description,status:'Published'})});e.target.reset();closeModal('eventModal');await loadAdminData();notify('Event saved.')}catch(err){notify(err.message,true)}};
+      $('#goalForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/goals',{method:'POST',body:JSON.stringify({title:d.title,targetAmount:Number(d.target),currentAmount:Number(d.current),isPublic:true})});e.target.reset();closeModal('goalModal');await loadAdminData();notify('Community goal saved.')}catch(err){notify(err.message,true)}};
+      $('#memberSearch').oninput=renderMembers;$('#memberFilter').onchange=renderMembers;
+      function shareWhatsApp(){let msg=$('#broadcastMessage').value.trim();if(!msg)return notify('Please write a message first.',true);window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener')}
+      function copyBroadcast(){let msg=$('#broadcastMessage').value.trim();if(!msg)return notify('Please write a message first.',true);navigator.clipboard?.writeText(msg).then(()=>notify('Message copied.')).catch(()=>notify('Copy unavailable in this browser.',true))}
+      async function takePledge(){let name=prompt('Your name / आपका नाम / ਤੁਹਾਡਾ ਨਾਮ');if(!name?.trim())return;let phone=prompt('Phone (optional) / मोबाइल (वैकल्पिक) / ਫ਼ੋਨ (ਵਿਕਲਪਿਕ)')||'';try{await api('/public/pledges',{method:'POST',body:JSON.stringify({name:name.trim(),phone,pledgeText:'I pledge to support unity, education, service and community development.',consentToDisplayName:false})});await loadPublicData();notify('Thank you for taking the community pledge.')}catch(e){notify(e.message,true)}}
+      // Replace the demo-only pledge counter action with a real public API submission.
+      const pledgeBtn=$('#view-pledge .pledge .btn');if(pledgeBtn)pledgeBtn.onclick=takePledge;
+      async function exportCSV(){try{let res=await fetch(`${API}/api/reports/transactions.csv`,{headers:{Authorization:`Bearer ${token}`}});if(!res.ok)throw new Error((await res.json()).error||'Export failed');let blob=await res.blob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='valmiki-samaj-transactions.csv';a.click();URL.revokeObjectURL(a.href)}catch(e){notify(e.message,true)}}
+      $('#language').onchange=e=>{let language=e.target.value;let t={hi:{valuesLine:'एकता • सम्मान • सेवा • शिक्षा • विकास',eyebrow:'हमारा समाज • हमारी जिम्मेदारी',heroTitle:'विरासत में एकता।<br>उद्देश्य के साथ विकास।',heroText:'अपनी संस्कृति का सम्मान करने, समाज को मजबूत बनाने और आने वाली पीढ़ियों के उज्ज्वल भविष्य के लिए मिलकर काम करने का साझा मंच।',heroCta:'हमारा विज़न देखें ↗',overview:'समाज की झलक',overviewSub:'समाज की गतिविधियों का पारदर्शी विवरण'},pa:{valuesLine:'ਏਕਤਾ • ਸਤਿਕਾਰ • ਸੇਵਾ • ਸਿੱਖਿਆ • ਵਿਕਾਸ',eyebrow:'ਸਾਡਾ ਸਮਾਜ • ਸਾਡੀ ਜ਼ਿੰਮੇਵਾਰੀ',heroTitle:'ਵਿਰਾਸਤ ਵਿੱਚ ਏਕਤਾ।<br>ਮਕਸਦ ਨਾਲ ਤਰੱਕੀ।',heroText:'ਆਪਣੇ ਸੱਭਿਆਚਾਰ ਦਾ ਸਤਿਕਾਰ ਕਰਨ, ਸਮਾਜ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾਉਣ ਅਤੇ ਆਉਣ ਵਾਲੀਆਂ ਪੀੜ੍ਹੀਆਂ ਦੇ ਚੰਗੇ ਭਵਿੱਖ ਲਈ ਇਕੱਠੇ ਕੰਮ ਕਰਨ ਦਾ ਸਾਂਝਾ ਮੰਚ।',heroCta:'ਸਾਡਾ ਵਿਜ਼ਨ ਵੇਖੋ ↗',overview:'ਸਮਾਜ ਦੀ ਝਲਕ',overviewSub:'ਸਮਾਜ ਦੀਆਂ ਗਤੀਵਿਧੀਆਂ ਦਾ ਪਾਰਦਰਸ਼ੀ ਵੇਰਵਾ'},en:{valuesLine:'UNITY • RESPECT • SERVICE • EDUCATION • GROWTH',eyebrow:'OUR COMMUNITY • OUR RESPONSIBILITY',heroTitle:'United in heritage.<br/>Growing with purpose.',heroText:'A shared space to celebrate our culture, strengthen our community, support one another and build a brighter future for the generations ahead.',heroCta:'Explore our vision ↗',overview:'Community overview',overviewSub:'A transparent view of your community activity'}}[language];$$('[data-i18n]').forEach(el=>{if(t[el.dataset.i18n])el.innerHTML=t[el.dataset.i18n]});};
+      // Public-first landing; admin data is never shown until a user authenticates.
+      $('#adminNav').classList.add('hidden');$('#publicNav').classList.remove('hidden');$('#view-dashboard').classList.add('hidden');$('#view-home').classList.remove('hidden');$('#adminMode').classList.remove('active');$('#publicMode').classList.add('active');
+      updateAuthControls();loadPublicData();
+      if(token){api('/auth/me').then(x=>{currentUser=x.user;setMode('admin')}).catch(()=>logout(false));}
+    </script>
+</body>
+
+</html>
