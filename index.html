@@ -90,15 +90,6 @@
             font-size: 11px;
             letter-spacing: 1.5px
         }
-        .v-seal {
-            width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%;
-            display: grid; place-items: center; margin-left: 4px;
-            border: 1px solid var(--gold2); outline: 1px solid #c49a5077; outline-offset: 3px;
-            background: radial-gradient(circle, #3d1118 0 58%, #6d342d 59% 100%);
-            box-shadow: inset 0 0 0 3px #d8b56a44;
-        }
-        .v-seal svg { width: 29px; height: 29px; display: block; }
-        @media(max-width:620px){ .v-seal{width:40px;height:40px;flex-basis:40px;margin-left:0}.v-seal svg{width:24px;height:24px}.brand{gap:9px}.brand p{font-size:9px;letter-spacing:.8px} }
 
         .top-actions {
             display: flex;
@@ -677,10 +668,7 @@
                 <div class="seal">ॐ</div>
                 <div>
                     <h1>Valmiki Samaj – Ekta aur Vikas</h1>
-                    <p data-i18n="valuesLine">एकता • सम्मान • सेवा • शिक्षा • विकास</p>
-                </div>
-                <div class="v-seal" role="img" aria-label="Valmiki Samaj V emblem">
-                    <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 8 C14 9 20 17 23 29 C24 34 24 39 24 43 C21 30 15 22 8 20 C6 16 5 12 5 8Z" fill="#fffdf8"/><path d="M43 8 C34 9 28 17 25 29 C24 34 24 39 24 43 C27 30 33 22 40 20 C42 16 43 12 43 8Z" fill="#fffdf8"/></svg>
+                    <p>एकता • सम्मान • सेवा • विकास</p>
                 </div>
             </div>
             <div class="top-actions"><select class="lang" id="language" aria-label="Language">
@@ -688,7 +676,7 @@
                     <option value="hi">हिन्दी</option>
                     <option value="pa">ਪੰਜਾਬੀ</option>
                 </select><button class="mode active" id="adminMode">⚙ Admin</button><button class="mode"
-                    id="publicMode">◈ Public site</button><button class="mode" id="logoutBtn" onclick="logout()" hidden>↪ Sign out</button></div>
+                    id="publicMode">◈ Public site</button></div>
         </header>
         <section class="hero" id="hero">
             <div class="eyebrow" data-i18n="eyebrow">OUR COMMUNITY • OUR RESPONSIBILITY</div>
@@ -775,7 +763,7 @@
                                 <th>Type</th>
                                 <th>Method</th>
                                 <th>Amount</th>
-                                <th>Note</th><th>Status / approval</th>
+                                <th>Note</th>
                             </tr>
                         </thead>
                         <tbody id="paymentRows"></tbody>
@@ -845,24 +833,14 @@
                 <div class="section-head">
                     <div>
                         <h2>Our vision, values & goals</h2>
-                        <p>एकता से शक्ति • सम्मान से पहचान • सेवा से सहयोग • शिक्षा से प्रगति • विकास से समृद्धि</p>
+                        <p>एकता से शक्ति • शिक्षा से प्रगति • सेवा से सम्मान</p>
                     </div><button class="btn gold" onclick="openModal('goalModal')">＋ Add goal</button>
                 </div>
                 <div class="public-cards">
                     <div class="card value-card">
-                        <div class="symbol">एकता</div>
+                        <div class="symbol">✥</div>
                         <h3>Unity · एकता</h3>
-                        <p>Building stronger bonds through inclusion, togetherness and collective responsibility.</p>
-                    </div>
-                    <div class="card value-card">
-                        <div class="symbol">सम्मान</div>
-                        <h3>Respect · सम्मान</h3>
-                        <p>Honouring every person, our shared heritage and the dignity of every family.</p>
-                    </div>
-                    <div class="card value-card">
-                        <div class="symbol">सेवा</div>
-                        <h3>Service · सेवा</h3>
-                        <p>Standing together to support families and contribute to the wellbeing of society.</p>
+                        <p>Building stronger bonds through mutual respect, inclusion and collective responsibility.</p>
                     </div>
                     <div class="card value-card">
                         <div class="symbol">ज्ञान</div>
@@ -870,9 +848,9 @@
                         <p>Encouraging learning, opportunity and support for children and young people.</p>
                     </div>
                     <div class="card value-card">
-                        <div class="symbol">विकास</div>
-                        <h3>Growth · विकास</h3>
-                        <p>Creating a progressive, self-reliant community with opportunities for every generation.</p>
+                        <div class="symbol">सेवा</div>
+                        <h3>Service · सेवा</h3>
+                        <p>Standing together to support families and contribute to the wellbeing of society.</p>
                     </div>
                 </div>
                 <div class="card" style="margin-top:15px">
@@ -938,7 +916,7 @@
                     </div>
                 </div>
                 <div class="pledge">
-                    <h3>एकता • सम्मान • सेवा • शिक्षा • विकास</h3>
+                    <h3>एकता • सम्मान • सेवा • विकास</h3>
                     <p>One community. Shared responsibility. A brighter tomorrow.</p><button class="btn gold"
                         onclick="showView('pledge')">Take the community pledge →</button>
                 </div>
@@ -949,7 +927,6 @@
             Ward No 15 Mandi Dabwali, Haryana, India
         </footer>
     </div>
-    <div class="modal" id="loginModal"><div class="dialog"><div class="dialog-head"><h3>Administrator sign in</h3><button class="close" onclick="closeModal('loginModal')">×</button></div><p class="muted" style="font-size:13px">Sign in with your Valmiki Samaj committee account.</p><form id="loginForm"><div class="form-grid"><label class="wide">Email<input class="field" name="email" type="email" required autocomplete="username" placeholder="admin@example.org" /></label><label class="wide">Password<input class="field" name="password" type="password" required autocomplete="current-password" /></label></div><div class="form-actions"><button type="button" class="btn outline" onclick="closeModal('loginModal')">Cancel</button><button class="btn">Sign in securely</button></div></form></div></div>
     <!-- Modals -->
     <div class="modal" id="memberModal">
         <div class="dialog">
@@ -1054,74 +1031,43 @@
             </form>
         </div>
     </div>
-    <script src="/config.js"></script>
     <script>
-      const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-      const API = (window.VALMIKI_API_URL || '').replace(/\/$/, '');
-      const money = n => '₹' + Number(n || 0).toLocaleString('en-IN');
-      const today = () => new Date().toISOString().slice(0,10);
-      let token = sessionStorage.getItem('vs_token') || '';
-      let currentUser = null, currentMode = 'public';
-      let members=[], transactions=[], events=[], goals=[], dashboard={};
-      const headers = () => ({'Content-Type':'application/json', ...(token ? {Authorization:`Bearer ${token}`} : {})});
-      async function api(path, options={}) {
-        const res = await fetch(`${API}/api${path}`, {...options, headers:{...headers(), ...(options.headers||{})}});
-        const data = await res.json().catch(()=>({}));
-        if (!res.ok) { if(res.status===401 && token) logout(false); throw new Error(data.error || `Request failed (${res.status})`); }
-        return data;
-      }
-      function notify(message, bad=false) { let n=$('#appNotice'); if(!n){n=document.createElement('div');n.id='appNotice';n.style.cssText='position:fixed;right:18px;bottom:18px;z-index:100;background:#542a2a;color:white;padding:13px 18px;border-radius:10px;box-shadow:0 8px 28px #0003;max-width:360px';document.body.append(n)} n.textContent=message;n.style.background=bad?'#9b3d35':'#542a2a';n.hidden=false;clearTimeout(window.__noticeTimer);window.__noticeTimer=setTimeout(()=>n.hidden=true,3800); }
-      function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-      function showView(v){ $$('.view').forEach(x=>x.classList.add('hidden')); $('#view-'+v)?.classList.remove('hidden'); $$('.nav button').forEach(x=>x.classList.toggle('selected',x.dataset.view===v)); if(currentMode==='public') $('#hero').classList.toggle('hidden',v==='pledge'); window.scrollTo({top:0,behavior:'smooth'}); }
-      $$('.nav').forEach(n=>n.addEventListener('click',e=>{let b=e.target.closest('button[data-view]');if(b){showView(b.dataset.view);if(currentMode==='admin') loadAdminData().catch(e=>notify(e.message,true));}}));
-      function openModal(id){$('#'+id)?.classList.add('open')} function closeModal(id){$('#'+id)?.classList.remove('open')}
-      $$('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));
-      function setMode(mode){
-        if(mode==='admin' && !token){openModal('loginModal');return;}
-        currentMode=mode;$('#adminMode').classList.toggle('active',mode==='admin');$('#publicMode').classList.toggle('active',mode==='public');
-        $('#adminNav').classList.toggle('hidden',mode!=='admin');$('#publicNav').classList.toggle('hidden',mode!=='public');
-        if(mode==='public'){showView('home');loadPublicData().catch(e=>notify(e.message,true));}
-        else {showView('dashboard');loadAdminData().catch(e=>notify(e.message,true));}
-        updateAuthControls();
-      }
-      $('#adminMode').onclick=()=>setMode('admin');$('#publicMode').onclick=()=>setMode('public');
-      function updateAuthControls(){let b=$('#logoutBtn');if(b)b.hidden=!token;}
-      async function login(e){e.preventDefault();try{let f=e.target,d=Object.fromEntries(new FormData(f));let result=await api('/auth/login',{method:'POST',body:JSON.stringify(d)});token=result.token;currentUser=result.user;sessionStorage.setItem('vs_token',token);closeModal('loginModal');f.reset();setMode('admin');notify(`Welcome, ${currentUser.name}`);}catch(err){notify(err.message,true)}}
-      function logout(show=true){token='';currentUser=null;sessionStorage.removeItem('vs_token');updateAuthControls();setMode('public');if(show)notify('You have signed out.');}
-      $('#loginForm').onsubmit=login;
-      async function loadPublicData(){try{let d=await api('/public');events=d.events||[];goals=d.goals||[];renderEvents();renderGoals();$('#pledgeCount').textContent=d.pledgeCount||0;}catch(e){console.warn(e)}}
-      async function loadAdminData(){if(!token)return;let financeAllowed=['Super Admin','Admin','Treasurer'].includes(currentUser?.role);let [dash,m,g,ev]=await Promise.all([api('/dashboard'),api('/members'),api('/goals'),api('/events')]);dashboard=dash;members=m.members||[];goals=g.goals||[];events=ev.events||[];transactions=financeAllowed?(await api('/transactions')).transactions||[]:[];$$('#adminNav button[data-view=\"finance\"],#adminNav button[data-view=\"expenses\"],#adminNav button[data-view=\"reports\"]').forEach(b=>b.classList.toggle('hidden',!financeAllowed));renderAll();}
-      function renderAll(){
-        let income=transactions.filter(x=>x.direction==='income'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),out=transactions.filter(x=>x.direction==='expense'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),active=members.filter(x=>x.status==='Active').length;
-        $('#metrics').innerHTML=[['♙','Total members',dashboard.members??members.length,'Registered members'],['₹','Total collections',money(dashboard.totalIncome??income),'Verified ledger income'],['↗','Total expenses',money(dashboard.totalExpenses??out),'Recorded spending'],['◈','Available balance',money(dashboard.balance??income-out),'Income less expenses']].map(x=>`<div class="card metric"><div><div class="label">${x[1]}</div><div class="value">${x[2]}</div><div class="note">${x[3]}</div></div><div class="icon">${x[0]}</div></div>`).join('');
-        $('#activityList').innerHTML=transactions.slice(0,5).map(x=>`<div class="list-row"><div><b>${esc(x.party||x.description||x.category)}</b><div class="muted">${esc(x.category)} · ${new Date(x.date).toLocaleDateString()}</div></div><b style="color:${x.direction==='income'?'var(--green)':'var(--red)'}">${x.direction==='income'?'+':'−'}${money(x.amount)}</b></div>`).join('')||'<div class="empty">No activity yet</div>';
-        renderGoals();renderMembers();renderFinance();renderEvents();renderReports();
-      }
-      function renderMembers(){let q=($('#memberSearch')?.value||'').toLowerCase(),f=$('#memberFilter')?.value||'all';let rows=members.filter(m=>(f==='all'||m.status===f)&&[m.memberId,m.name,m.phone].join(' ').toLowerCase().includes(q));$('#memberRows').innerHTML=rows.map(m=>`<tr><td>${esc(m.memberId)}</td><td><b>${esc(m.name)}</b></td><td>${esc(m.phone||'—')}</td><td>${new Date(m.joinedAt||m.createdAt).toLocaleDateString()}</td><td><span class="pill ${m.status==='Pending'?'pending':''}">${esc(m.status)}</span></td><td><button class="btn outline small" onclick="toggleMember('${m._id}')">Change status</button></td></tr>`).join('')||'<tr><td colspan="6" class="empty">No members found</td></tr>'}
-      async function toggleMember(id){let m=members.find(x=>x._id===id);if(!m)return;let status=m.status==='Active'?'Inactive':'Active';try{await api('/members/'+id,{method:'PATCH',body:JSON.stringify({status})});await loadAdminData();notify('Member status updated.')}catch(e){notify(e.message,true)}}
-      function renderFinance(){let income=transactions.filter(x=>x.direction==='income'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),out=transactions.filter(x=>x.direction==='expense'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0);$('#financeMetrics').innerHTML=[['Collections',money(income)],['Expenses',money(out)],['Net balance',money(income-out)],['Pending approvals',dashboard.pendingApprovals||0]].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join('');$('#paymentRows').innerHTML=transactions.filter(x=>x.direction==='income').map(x=>`<tr><td>${new Date(x.date).toLocaleDateString()}</td><td>${esc(x.party||x.memberId?.name||'—')}</td><td>${esc(x.category)}</td><td>${esc(x.method)}</td><td><b>${money(x.amount)}</b></td><td>${esc(x.description||'—')}</td><td>${esc(x.status)} ${x.status==='Pending approval'&&['Super Admin','Admin'].includes(currentUser?.role)?`<button class="btn small" onclick="approveTransaction('${x._id}','Approved')">Approve</button> <button class="btn outline small" onclick="approveTransaction('${x._id}','Rejected')">Reject</button>`:''}</td></tr>`).join('')||'<tr><td colspan="7" class="empty">No payments recorded</td></tr>';$('#expenseMetrics').innerHTML=[['Total expenses',money(out)],['Expense entries',transactions.filter(x=>x.direction==='expense').length],['Net community balance',money(income-out)],['Pending approvals',dashboard.pendingApprovals||0]].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join('');$('#expenseRows').innerHTML=transactions.filter(x=>x.direction==='expense').map(x=>`<tr><td>${new Date(x.date).toLocaleDateString()}</td><td>${esc(x.category)}</td><td>${esc(x.description||'—')}</td><td>${esc(x.party||'—')}</td><td><b>${money(x.amount)}</b></td></tr>`).join('')||'<tr><td colspan="5" class="empty">No expenses recorded</td></tr>';}
-      async function approveTransaction(id,status){try{await api('/transactions/'+id+'/approval',{method:'PATCH',body:JSON.stringify({status})});await loadAdminData();notify('Transaction '+status.toLowerCase()+'.')}catch(e){notify(e.message,true)}}
-      function renderEvents(){$('#eventCards').innerHTML=events.map(x=>`<div class="card"><div class="eyebrow" style="color:var(--gold)">COMMUNITY GATHERING</div><h3 style="margin-top:10px">${esc(x.title||x.name)}</h3><div class="muted" style="font-size:12px">▦ ${new Date(x.date).toLocaleDateString()} · ◈ ${esc(x.venue||'Venue to be confirmed')}</div><p style="font-size:13px;line-height:1.6">${esc(x.description||'Join the community.')}</p></div>`).join('')||'<div class="empty">No events added yet</div>';}
-      function renderGoals(){let html=goals.map(g=>{let target=Number(g.targetAmount??g.target??0),current=Number(g.currentAmount??g.current??0),pct=target?Math.min(100,Math.round(current/target*100)):0;return `<div class="goal"><div class="goal-top"><b>${esc(g.title)}</b><span>${pct}%</span></div><div class="barline"><span style="width:${pct}%"></span></div><div class="muted" style="font-size:11px;margin-top:5px">${money(current)} of ${money(target)}</div></div>`}).join('')||'<div class="empty">No goals published yet</div>';$('#goalPreview').innerHTML=goals.slice(0,3).map(g=>{let t=Number(g.targetAmount||0),c=Number(g.currentAmount||0),p=t?Math.min(100,Math.round(c/t*100)):0;return `<div class="goal"><div class="goal-top"><b>${esc(g.title)}</b><span>${p}%</span></div><div class="barline"><span style="width:${p}%"></span></div><div class="muted" style="font-size:11px;margin-top:5px">${money(c)} of ${money(t)}</div></div>`}).join('');$('#allGoals').innerHTML=html;}
-      function renderReports(){let income=transactions.filter(x=>x.direction==='income'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0),out=transactions.filter(x=>x.direction==='expense'&&x.status!=='Rejected').reduce((a,x)=>a+Number(x.amount),0);$('#reportMetrics').innerHTML=[['Total income',money(income)],['Total outflow',money(out)],['Net position',money(income-out)],['Members',members.length]].map(x=>`<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join('');let incomeRows=transactions.filter(x=>x.direction==='income').slice(0,7).reverse(),max=Math.max(1,...incomeRows.map(x=>x.amount));$('#collectionChart').innerHTML=incomeRows.map(x=>`<div class="chart-col"><b>${Math.round(x.amount/100)/10}k</b><i style="height:${Math.max(4,x.amount/max*105)}px"></i><span>${new Date(x.date).toLocaleDateString('en-IN',{day:'2-digit',month:'short'})}</span></div>`).join('')||'<span class="muted">No data</span>';$('#reportSummary').innerHTML=[['Active members',members.filter(x=>x.status==='Active').length],['Pending members',members.filter(x=>x.status==='Pending').length],['Income entries',transactions.filter(x=>x.direction==='income').length],['Expense entries',transactions.filter(x=>x.direction==='expense').length],['Events planned',events.length]].map(x=>`<div class="list-row"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}
-      function formData(f){return Object.fromEntries(new FormData(f).entries())}
-      $('#memberForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/members',{method:'POST',body:JSON.stringify({name:d.name,phone:d.phone,memberId:d.id,status:d.status})});e.target.reset();closeModal('memberModal');await loadAdminData();notify('Member saved to the community database.')}catch(err){notify(err.message,true)}};
-      $('#paymentForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/transactions',{method:'POST',body:JSON.stringify({direction:'income',category:d.type,amount:Number(d.amount),method:d.method,party:d.source,description:d.note,date:today()})});e.target.reset();closeModal('paymentModal');await loadAdminData();notify('Payment recorded.')}catch(err){notify(err.message,true)}};
-      $('#expenseForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/transactions',{method:'POST',body:JSON.stringify({direction:'expense',category:d.category,amount:Number(d.amount),method:'Cash',party:d.paidBy,description:d.description,date:d.date||today()})});e.target.reset();closeModal('expenseModal');await loadAdminData();notify('Expense recorded.')}catch(err){notify(err.message,true)}};
-      $('#eventForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/events',{method:'POST',body:JSON.stringify({title:d.name,date:d.date,venue:d.venue,description:d.description,status:'Published'})});e.target.reset();closeModal('eventModal');await loadAdminData();notify('Event saved.')}catch(err){notify(err.message,true)}};
-      $('#goalForm').onsubmit=async e=>{e.preventDefault();let d=formData(e.target);try{await api('/goals',{method:'POST',body:JSON.stringify({title:d.title,targetAmount:Number(d.target),currentAmount:Number(d.current),isPublic:true})});e.target.reset();closeModal('goalModal');await loadAdminData();notify('Community goal saved.')}catch(err){notify(err.message,true)}};
-      $('#memberSearch').oninput=renderMembers;$('#memberFilter').onchange=renderMembers;
-      function shareWhatsApp(){let msg=$('#broadcastMessage').value.trim();if(!msg)return notify('Please write a message first.',true);window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener')}
-      function copyBroadcast(){let msg=$('#broadcastMessage').value.trim();if(!msg)return notify('Please write a message first.',true);navigator.clipboard?.writeText(msg).then(()=>notify('Message copied.')).catch(()=>notify('Copy unavailable in this browser.',true))}
-      async function takePledge(){let name=prompt('Your name / आपका नाम / ਤੁਹਾਡਾ ਨਾਮ');if(!name?.trim())return;let phone=prompt('Phone (optional) / मोबाइल (वैकल्पिक) / ਫ਼ੋਨ (ਵਿਕਲਪਿਕ)')||'';try{await api('/public/pledges',{method:'POST',body:JSON.stringify({name:name.trim(),phone,pledgeText:'I pledge to support unity, education, service and community development.',consentToDisplayName:false})});await loadPublicData();notify('Thank you for taking the community pledge.')}catch(e){notify(e.message,true)}}
-      // Replace the demo-only pledge counter action with a real public API submission.
-      const pledgeBtn=$('#view-pledge .pledge .btn');if(pledgeBtn)pledgeBtn.onclick=takePledge;
-      async function exportCSV(){try{let res=await fetch(`${API}/api/reports/transactions.csv`,{headers:{Authorization:`Bearer ${token}`}});if(!res.ok)throw new Error((await res.json()).error||'Export failed');let blob=await res.blob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='valmiki-samaj-transactions.csv';a.click();URL.revokeObjectURL(a.href)}catch(e){notify(e.message,true)}}
-      $('#language').onchange=e=>{let language=e.target.value;let t={hi:{valuesLine:'एकता • सम्मान • सेवा • शिक्षा • विकास',eyebrow:'हमारा समाज • हमारी जिम्मेदारी',heroTitle:'विरासत में एकता।<br>उद्देश्य के साथ विकास।',heroText:'अपनी संस्कृति का सम्मान करने, समाज को मजबूत बनाने और आने वाली पीढ़ियों के उज्ज्वल भविष्य के लिए मिलकर काम करने का साझा मंच।',heroCta:'हमारा विज़न देखें ↗',overview:'समाज की झलक',overviewSub:'समाज की गतिविधियों का पारदर्शी विवरण'},pa:{valuesLine:'ਏਕਤਾ • ਸਤਿਕਾਰ • ਸੇਵਾ • ਸਿੱਖਿਆ • ਵਿਕਾਸ',eyebrow:'ਸਾਡਾ ਸਮਾਜ • ਸਾਡੀ ਜ਼ਿੰਮੇਵਾਰੀ',heroTitle:'ਵਿਰਾਸਤ ਵਿੱਚ ਏਕਤਾ।<br>ਮਕਸਦ ਨਾਲ ਤਰੱਕੀ।',heroText:'ਆਪਣੇ ਸੱਭਿਆਚਾਰ ਦਾ ਸਤਿਕਾਰ ਕਰਨ, ਸਮਾਜ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾਉਣ ਅਤੇ ਆਉਣ ਵਾਲੀਆਂ ਪੀੜ੍ਹੀਆਂ ਦੇ ਚੰਗੇ ਭਵਿੱਖ ਲਈ ਇਕੱਠੇ ਕੰਮ ਕਰਨ ਦਾ ਸਾਂਝਾ ਮੰਚ।',heroCta:'ਸਾਡਾ ਵਿਜ਼ਨ ਵੇਖੋ ↗',overview:'ਸਮਾਜ ਦੀ ਝਲਕ',overviewSub:'ਸਮਾਜ ਦੀਆਂ ਗਤੀਵਿਧੀਆਂ ਦਾ ਪਾਰਦਰਸ਼ੀ ਵੇਰਵਾ'},en:{valuesLine:'UNITY • RESPECT • SERVICE • EDUCATION • GROWTH',eyebrow:'OUR COMMUNITY • OUR RESPONSIBILITY',heroTitle:'United in heritage.<br/>Growing with purpose.',heroText:'A shared space to celebrate our culture, strengthen our community, support one another and build a brighter future for the generations ahead.',heroCta:'Explore our vision ↗',overview:'Community overview',overviewSub:'A transparent view of your community activity'}}[language];$$('[data-i18n]').forEach(el=>{if(t[el.dataset.i18n])el.innerHTML=t[el.dataset.i18n]});};
-      // Public-first landing; admin data is never shown until a user authenticates.
-      $('#adminNav').classList.add('hidden');$('#publicNav').classList.remove('hidden');$('#view-dashboard').classList.add('hidden');$('#view-home').classList.remove('hidden');$('#adminMode').classList.remove('active');$('#publicMode').classList.add('active');
-      updateAuthControls();loadPublicData();
-      if(token){api('/auth/me').then(x=>{currentUser=x.user;setMode('admin')}).catch(()=>logout(false));}
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)]; const money = n => '₹' + Number(n || 0).toLocaleString('en-IN'); const today = () => new Date().toISOString().slice(0, 10);
+        let members = JSON.parse(localStorage.getItem('vs_members') || 'null') || [{ id: 'VSM-001', name: 'Aman Kumar', phone: '+91 98XXXXXX21', status: 'Active', joined: '2026-10-12' }, { id: 'VSM-002', name: 'Sunita Devi', phone: '+91 98XXXXXX44', status: 'Active', joined: '2026-10-18' }, { id: 'VSM-003', name: 'Ravi Kumar', phone: '+91 97XXXXXX12', status: 'Pending', joined: '2026-11-02' }];
+        let payments = JSON.parse(localStorage.getItem('vs_payments') || 'null') || [{ date: '2026-11-02', source: 'Aman Kumar', type: 'Contribution', method: 'UPI', amount: 2100, note: 'Monthly contribution' }, { date: '2026-11-04', source: 'Community donation', type: 'Donation', method: 'Cash', amount: 5000, note: 'General fund' }, { date: '2026-11-08', source: 'Sunita Devi', type: 'Contribution', method: 'UPI', amount: 1100, note: 'Monthly contribution' }];
+        let expenses = JSON.parse(localStorage.getItem('vs_expenses') || 'null') || [{ date: '2026-11-05', category: 'Event', description: 'Community hall advance', paidBy: 'Treasurer', amount: 4500 }, { date: '2026-11-09', category: 'Community welfare', description: 'Family support', paidBy: 'Committee', amount: 1500 }];
+        let events = JSON.parse(localStorage.getItem('vs_events') || 'null') || [{ name: 'Community Unity Gathering', date: '2026-12-06', venue: 'Community Hall', description: 'An evening of unity, culture and shared progress.' }, { name: 'Education & Youth Meet', date: '2026-12-20', venue: 'To be confirmed', description: 'Ideas and support for the next generation.' }];
+        let goals = JSON.parse(localStorage.getItem('vs_goals') || 'null') || [{ title: 'Education support initiative', target: 100000, current: 35000 }, { title: 'Community welfare fund', target: 150000, current: 62000 }, { title: 'Youth development programme', target: 50000, current: 18000 }]; let pledgeCount = Number(localStorage.getItem('vs_pledges') || 0); let currentMode = 'admin';
+        function save() { [['members', members], ['payments', payments], ['expenses', expenses], ['events', events], ['goals', goals]].forEach(([k, v]) => localStorage.setItem('vs_' + k, JSON.stringify(v))); render() }
+        function showView(v) { $$('.view').forEach(x => x.classList.add('hidden')); $('#view-' + v)?.classList.remove('hidden'); $$('.nav button').forEach(x => x.classList.toggle('selected', x.dataset.view === v)); if (currentMode === 'public') { $('#hero').classList.toggle('hidden', v === 'pledge'); } window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        $$('.nav').forEach(n => n.addEventListener('click', e => { let b = e.target.closest('button[data-view]'); if (b) showView(b.dataset.view) }));
+        function setMode(m) { currentMode = m; $('#adminMode').classList.toggle('active', m === 'admin'); $('#publicMode').classList.toggle('active', m === 'public'); $('#adminNav').classList.toggle('hidden', m === 'public'); $('#publicNav').classList.toggle('hidden', m !== 'public'); if (m === 'public') { showView('home') } else { showView('dashboard') } } $('#adminMode').onclick = () => setMode('admin'); $('#publicMode').onclick = () => setMode('public');
+        function openModal(id) { $('#' + id).classList.add('open') } function closeModal(id) { $('#' + id).classList.remove('open') } $$('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open') }));
+        function formData(f) { return Object.fromEntries(new FormData(f).entries()) }
+        $('#memberForm').onsubmit = e => { e.preventDefault(); let d = formData(e.target); members.unshift({ ...d, id: d.id || 'VSM-' + String(Date.now()).slice(-5), joined: today() }); e.target.reset(); closeModal('memberModal'); save() };
+        $('#paymentForm').onsubmit = e => { e.preventDefault(); payments.unshift({ ...formData(e.target), date: today(), amount: Number(e.target.amount.value) }); e.target.reset(); closeModal('paymentModal'); save() };
+        $('#expenseForm').onsubmit = e => { e.preventDefault(); let d = formData(e.target); expenses.unshift({ ...d, date: d.date || today(), amount: Number(d.amount) }); e.target.reset(); closeModal('expenseModal'); save() };
+        $('#eventForm').onsubmit = e => { e.preventDefault(); events.unshift(formData(e.target)); e.target.reset(); closeModal('eventModal'); save() };
+        $('#goalForm').onsubmit = e => { e.preventDefault(); let d = formData(e.target); goals.unshift({ ...d, target: Number(d.target), current: Number(d.current) }); e.target.reset(); closeModal('goalModal'); save() };
+        $('#memberSearch').oninput = renderMembers; $('#memberFilter').onchange = renderMembers;
+        function renderMembers() { let q = ($('#memberSearch')?.value || '').toLowerCase(), f = $('#memberFilter')?.value || 'all'; let rows = members.filter(m => (f === 'all' || m.status === f) && [m.id, m.name, m.phone].join(' ').toLowerCase().includes(q)); $('#memberRows').innerHTML = rows.map(m => `<tr><td>${esc(m.id)}</td><td><b>${esc(m.name)}</b></td><td>${esc(m.phone || '—')}</td><td>${esc(m.joined)}</td><td><span class="pill ${m.status === 'Pending' ? 'pending' : ''}">${esc(m.status)}</span></td><td><button class="btn outline small" onclick="toggleMember('${m.id}')">${m.status === 'Active' ? 'Set pending' : 'Activate'}</button> <button class="btn outline small" onclick="removeMember('${m.id}')">Remove</button></td></tr>`).join('') || '<tr><td colspan="6" class="empty">No members found</td></tr>' }
+        function toggleMember(id) { let m = members.find(x => x.id === id); if (m) m.status = m.status === 'Active' ? 'Pending' : 'Active'; save() } function removeMember(id) { if (confirm('Remove this member from the local demo directory?')) { members = members.filter(x => x.id !== id); save() } }
+        function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) }
+        function render() {
+            let income = payments.reduce((a, x) => a + Number(x.amount), 0), out = expenses.reduce((a, x) => a + Number(x.amount), 0), balance = income - out, active = members.filter(x => x.status === 'Active').length; $('#metrics').innerHTML = [['♙', 'Total members', members.length, 'Registered in directory'], ['₹', 'Total collections', money(income), 'Contributions & donations'], ['↗', 'Total expenses', money(out), 'Recorded spending'], ['◈', 'Available balance', money(balance), 'Income less expenses']].map(x => `<div class="card metric"><div><div class="label">${x[1]}</div><div class="value">${x[2]}</div><div class="note">${x[3]}</div></div><div class="icon">${x[0]}</div></div>`).join('');
+            $('#activityList').innerHTML = [...payments.slice(0, 3).map(x => ({ t: x.source, d: x.type, a: x.amount, date: x.date, sign: '+' })), ...expenses.slice(0, 2).map(x => ({ t: x.description, d: x.category, a: x.amount, date: x.date, sign: '−' }))].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5).map(x => `<div class="list-row"><div><b>${esc(x.t)}</b><div class="muted">${esc(x.d)} · ${esc(x.date)}</div></div><b style="color:${x.sign === '+' ? 'var(--green)' : 'var(--red)'}">${x.sign}${money(x.a)}</b></div>`).join('') || '<div class="empty">No activity yet</div>';
+            $('#goalPreview').innerHTML = goals.slice(0, 3).map(g => `<div class="goal"><div class="goal-top"><b>${esc(g.title)}</b><span>${Math.min(100, Math.round(g.current / g.target * 100))}%</span></div><div class="barline"><span style="width:${Math.min(100, g.current / g.target * 100)}%"></span></div><div class="muted" style="font-size:11px;margin-top:5px">${money(g.current)} of ${money(g.target)}</div></div>`).join('');
+            $('#financeMetrics').innerHTML = [['Collections', money(income)], ['Expenses', money(out)], ['Net balance', money(balance)], ['Active members', active]].map(x => `<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join(''); $('#paymentRows').innerHTML = payments.map(p => `<tr><td>${esc(p.date)}</td><td>${esc(p.source)}</td><td>${esc(p.type)}</td><td>${esc(p.method)}</td><td><b>${money(p.amount)}</b></td><td>${esc(p.note || '—')}</td></tr>`).join('') || '<tr><td colspan="6" class="empty">No payments recorded</td></tr>';
+            $('#expenseMetrics').innerHTML = [['Total expenses', money(out)], ['Expense entries', expenses.length], ['Average expense', money(expenses.length ? out / expenses.length : 0)], ['Net community balance', money(balance)]].map(x => `<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join(''); $('#expenseRows').innerHTML = expenses.map(x => `<tr><td>${esc(x.date)}</td><td>${esc(x.category)}</td><td>${esc(x.description)}</td><td>${esc(x.paidBy || '—')}</td><td><b>${money(x.amount)}</b></td></tr>`).join('') || '<tr><td colspan="5" class="empty">No expenses recorded</td></tr>';
+            $('#eventCards').innerHTML = events.map(x => `<div class="card"><div class="eyebrow" style="color:var(--gold)">COMMUNITY GATHERING</div><h3 style="margin-top:10px">${esc(x.name)}</h3><div class="muted" style="font-size:12px">▦ ${esc(x.date)} · ◈ ${esc(x.venue || 'Venue to be confirmed')}</div><p style="font-size:13px;line-height:1.6">${esc(x.description || 'Join the community.')}</p></div>`).join('') || '<div class="empty">No events added yet</div>';
+            $('#allGoals').innerHTML = goals.map(g => `<div class="goal"><div class="goal-top"><b>${esc(g.title)}</b><span>${Math.min(100, Math.round(g.current / g.target * 100))}%</span></div><div class="barline"><span style="width:${Math.min(100, g.current / g.target * 100)}%"></span></div><div class="muted" style="font-size:11px;margin-top:5px">${money(g.current)} progress · ${money(g.target)} target</div></div>`).join('');
+            $('#reportMetrics').innerHTML = [['Total income', money(income)], ['Total outflow', money(out)], ['Net position', money(balance)], ['Members', members.length]].map(x => `<div class="card"><div class="label">${x[0]}</div><div class="value" style="font:25px Georgia;color:var(--wine);margin-top:8px">${x[1]}</div></div>`).join(''); let max = Math.max(1, ...payments.map(x => Number(x.amount))); $('#collectionChart').innerHTML = payments.slice(0, 7).reverse().map(x => `<div class="chart-col"><b>${Math.round(x.amount / 100) / 10}k</b><i style="height:${Math.max(4, x.amount / max * 105)}px"></i><span>${esc(x.date.slice(5))}</span></div>`).join('') || '<span class="muted">No data</span>'; $('#reportSummary').innerHTML = [['Active members', active], ['Pending members', members.length - active], ['Income entries', payments.length], ['Expense entries', expenses.length], ['Events planned', events.length]].map(x => `<div class="list-row"><span>${x[0]}</span><b>${x[1]}</b></div>`).join(''); $('#pledgeCount').textContent = pledgeCount; renderMembers()
+        }
+        function shareWhatsApp() { let msg = $('#broadcastMessage').value.trim(); if (!msg) { alert('Please write a message first.'); return } window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener') }; function copyBroadcast() { let msg = $('#broadcastMessage').value.trim(); if (!msg) return alert('Please write a message first.'); navigator.clipboard?.writeText(msg).then(() => alert('Message copied.')).catch(() => alert('Copy is unavailable in this browser.')) }
+        function exportCSV() { let rows = [['Date', 'Direction', 'Name / Description', 'Category', 'Method', 'Amount'], ...payments.map(p => [p.date, 'Income', p.source, p.type, p.method, p.amount]), ...expenses.map(x => [x.date, 'Expense', x.description, x.category, x.paidBy, x.amount])]; let csv = rows.map(r => r.map(v => '"' + String(v ?? '').replace(/"/g, '""') + '"').join(',')).join('\n'); let a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = 'valmiki-samaj-transactions.csv'; a.click(); URL.revokeObjectURL(a.href) }
+        const translations = { hi: { eyebrow: 'हमारा समाज • हमारी जिम्मेदारी', heroTitle: 'विरासत में एकता।<br>उद्देश्य के साथ विकास।', heroText: 'अपनी संस्कृति का सम्मान करने, समाज को मजबूत बनाने और आने वाली पीढ़ियों के उज्ज्वल भविष्य के लिए मिलकर काम करने का साझा मंच।', heroCta: 'हमारा विज़न देखें ↗', overview: 'समाज की झलक', overviewSub: 'समाज की गतिविधियों का पारदर्शी विवरण' }, pa: { eyebrow: 'ਸਾਡਾ ਸਮਾਜ • ਸਾਡੀ ਜ਼ਿੰਮੇਵਾਰੀ', heroTitle: 'ਵਿਰਾਸਤ ਵਿੱਚ ਏਕਤਾ।<br>ਮਕਸਦ ਨਾਲ ਤਰੱਕੀ।', heroText: 'ਆਪਣੇ ਸੱਭਿਆਚਾਰ ਦਾ ਸਤਿਕਾਰ ਕਰਨ, ਸਮਾਜ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾਉਣ ਅਤੇ ਆਉਣ ਵਾਲੀਆਂ ਪੀੜ੍ਹੀਆਂ ਦੇ ਚੰਗੇ ਭਵਿੱਖ ਲਈ ਇਕੱਠੇ ਕੰਮ ਕਰਨ ਦਾ ਸਾਂਝਾ ਮੰਚ।', heroCta: 'ਸਾਡਾ ਵਿਜ਼ਨ ਵੇਖੋ ↗', overview: 'ਸਮਾਜ ਦੀ ਝਲਕ', overviewSub: 'ਸਮਾਜ ਦੀਆਂ ਗਤੀਵਿਧੀਆਂ ਦਾ ਪਾਰਦਰਸ਼ੀ ਵੇਰਵਾ' } };
+        $('#language').onchange = e => { let t = translations[e.target.value]; $$('[data-i18n]').forEach(el => { let k = el.dataset.i18n; if (e.target.value === 'en') { let defaults = { eyebrow: 'OUR COMMUNITY • OUR RESPONSIBILITY', heroTitle: 'United in heritage.<br/>Growing with purpose.', heroText: 'A shared space to celebrate our culture, strengthen our community, support one another and build a brighter future for the generations ahead.', heroCta: 'Explore our vision ↗', overview: 'Community overview', overviewSub: 'A transparent view of your community activity' }; el.innerHTML = defaults[k] } else if (t?.[k]) el.innerHTML = t[k] }) };
+        render();
     </script>
 </body>
 
